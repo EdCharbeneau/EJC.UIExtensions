@@ -51,7 +51,7 @@ namespace EJC.Helpers
         //string[] overloads
         public static MvcHtmlString CheckBoxListItemFor<TModel, TProperty>(this HtmlHelper<TModel> html, Expression<Func<TModel, TProperty>> optionValue, Expression<Func<TModel, string[]>> selectedValues)
         {
-            
+
             return CheckBoxListItemFor(html, optionValue, selectedValues, null /* htmlAttributes */);
         }
 
@@ -59,42 +59,6 @@ namespace EJC.Helpers
         {
             return CheckBoxListItemFor(html, optionValue, selectedValues, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
-
-        //public static MvcHtmlString CheckBoxListItemFor<TModel, TProperty>(this HtmlHelper<TModel> html, Expression<Func<TModel, TProperty>> optionValue, Expression<Func<TModel, string[]>> selectedValues, IDictionary<string, object> htmlAttributes)
-        //{
-        //    RouteValueDictionary attributes = ToRouteValueDictionary(htmlAttributes);
-
-        //    if (optionValue == null)
-        //    {
-        //        throw new ArgumentNullException("expression");
-        //    }
-
-        //    //Get the metadata from the Lambda expression passed from the model & view data dictionary
-        //    ModelMetadata selectedValuesMetadata = ModelMetadata.FromLambdaExpression(selectedValues, html.ViewData);
-
-        //    //Get the checkbox name & value
-        //    string name = selectedValuesMetadata.PropertyName;
-        //    string value = ModelMetadata.FromLambdaExpression(optionValue, html.ViewData).Model.ToString();
-
-
-        //    //If the labelText is empty, return empty string
-        //    if (string.IsNullOrEmpty(value))
-        //    {
-        //        return MvcHtmlString.Empty;
-        //    }
-
-        //    //Get selected items
-        //    List<string> selections = (List<string>)selectedValuesMetadata.Model;
-
-        //    bool isChecked = false;
-        //    //See if this item is checked
-        //    if (selections.Contains(value))
-        //    {
-        //        isChecked = true;
-        //    }
-
-        //    return CheckBoxListItemHelper(html, selectedValuesMetadata, name, value, isChecked, attributes);
-        //}
 
         public static MvcHtmlString CheckBoxListItemFor<TModel, TProperty>(this HtmlHelper<TModel> html, Expression<Func<TModel, TProperty>> optionValue, Expression<Func<TModel, string[]>> selectedValues, IDictionary<string, object> htmlAttributes)
         {
@@ -157,6 +121,6 @@ namespace EJC.Helpers
             return MvcHtmlString.Create(tag.ToString(TagRenderMode.Normal)); //Render html
         }
 
-        
+
     }
 }

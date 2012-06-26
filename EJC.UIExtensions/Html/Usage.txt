@@ -1,0 +1,23 @@
+﻿**This project contains my personal collection of MVC helpers. Feel free to use them AS IS with out warranty**
+
+Model Example:         
+public class DatabaseSelector
+{
+[Display(Name = "Databases available", Prompt = "Check/Uncheck to Add/Remove permissions")]
+public string[] Databases { get; set; }
+
+public List<string> SelectedDatabases { get; set; }
+}
+
+View Example:
+@model DatabaseSelector
+@using EJC.Helpers
+    <ul>
+        @for (int i = 0; i < Model.Databases.Count(); i++)
+        {
+            <li>
+                @Html.CheckBoxListItemFor(model => model.Databases[i], model => model.SelectedDatabases)
+                @Html.DisplayFor(model => model.Databases[i])
+            </li>
+        }
+    </ul>
